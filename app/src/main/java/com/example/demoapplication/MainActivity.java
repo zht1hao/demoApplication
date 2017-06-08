@@ -29,8 +29,6 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     private WebView webView;
-    private ImageView imageView;
-    private TextView textView;
     private final Activity activity=this;
     //private AppBarLayout.LayoutParams imageViewPara;
     //private AppBarLayout.LayoutParams webViewPara;
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    webView.loadUrl("https://www.youtube.com/");
+                    webView.loadUrl("http://192.168.0.13:8072");
                     return true;
                 case R.id.navigation_dashboard:
                     webView.loadUrl("https://developer.android.com/guide/webapps/webview.html");
@@ -71,11 +69,8 @@ public class MainActivity extends AppCompatActivity {
         
 
         webView = (WebView) findViewById(R.id.web_view);
-        imageView = (ImageView)findViewById(R.id.image_view);
-        textView = (TextView) findViewById(R.id.text_view);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
-        imageView.setBackgroundColor(Color.GREEN);
 
         IntentIntegrator intentIntegrator = new IntentIntegrator(activity);
         intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
